@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      SONAR_TOKEN: ${{ secrets.dev.SONAR_TOKEN }}
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -19,10 +22,6 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
         maven-version: '3.8.1' # Specify the desired Maven version
-
-    - name: SonarQube Token
-      run: |
-        echo $SONAR_TOKEN
 
     - name: SonarQube Analysis
       run: |
