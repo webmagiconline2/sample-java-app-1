@@ -10,7 +10,7 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 // Set up SonarQube Scanner
-                tool name: 'Maven', type: 'maven'
+                tool name: 'maven', type: 'maven'
                 withSonarQubeEnv('Sonar Scan') {
                     // Run SonarQube analysis
                     sh "mvn sonar:sonar"
@@ -33,7 +33,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Set up Maven
-                tool name: 'Maven', type: 'maven'
+                tool name: 'maven', type: 'maven'
 
                 // Run Maven build
                 sh "mvn clean install"
