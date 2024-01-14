@@ -20,6 +20,10 @@ jobs:
         java-version: '11'
         maven-version: '3.8.1' # Specify the desired Maven version
 
+    - name: SonarQube Token
+      run: |
+        echo $SONAR_TOKEN
+
     - name: SonarQube Analysis
       run: |
         mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
