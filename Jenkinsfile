@@ -11,10 +11,8 @@ pipeline {
             steps {
                 // Set up SonarQube Scanner
                 tool name: 'maven', type: 'maven'
-                withSonarQubeEnv('sonar_Scan') {
                     // Run SonarQube analysis
                     sh "mvn sonar:sonar"
-                }
             }
         }
 
