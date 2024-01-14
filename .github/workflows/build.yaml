@@ -7,24 +7,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up JDK
+    - name: Set up JDK and Maven
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: '11'
-
-    - name: Set up Maven
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'maven'
-        java-version: '3.8.1'
+        maven-version: '3.8.1' # Specify the desired Maven version
 
     - name: SonarQube Analysis
       run: |
